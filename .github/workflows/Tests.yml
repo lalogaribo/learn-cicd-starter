@@ -20,3 +20,16 @@ jobs:
 
     - name: Print go version
       run: echo $(go version)
+
+  style:
+    name: style
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: "1.20"
+
+    - name: style
+      run: test -z $(go fmt ./...)
